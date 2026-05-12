@@ -500,6 +500,43 @@ footer.site-footer {
   text-decoration: underline;
 }
 
+/* Mensajes de error y éxito */
+.error {
+  color: var(--danger);
+  background: rgba(251, 113, 133, 0.1);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.success {
+  color: var(--ok);
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid var(--ok);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin: 10px 0;
+}
+
+/* Estilos para inputs con error */
+input.error, select.error, textarea.error {
+  border-color: var(--danger) !important;
+  box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.15) !important;
+}
+
+/* Botón de cerrar sesión (opcional) */
+.btn-logout {
+  background: var(--danger);
+  color: white;
+  border: 1px solid var(--danger);
+  margin-top: 20px;
+}
+
+.btn-logout:hover {
+  background: rgba(251, 113, 133, 0.8);
+}
+
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;

@@ -11,18 +11,18 @@ const obtenerEquipo = async () => {
         integrantes.forEach(persona => {
 
             contenedorEquipo.innerHTML += `
-                <div class="card-equipo">
+                <article class="card">
                     <h3>${persona.nombre}</h3>
                     <p>${persona.rol}</p>
-                    <p>${persona.email}</p>
-                </div>
+                    <p><strong>Email:</strong> ${persona.email}</p>
+                </article>
             `;
         });
 
     } catch (error) {
 
-        console.log("Error:", error);
-
+        console.log("Error al cargar equipo:", error);
+        contenedorEquipo.innerHTML = '<p class="error">Error al cargar equipo. Intenta nuevamente.</p>';
     }
 };
 

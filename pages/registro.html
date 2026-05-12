@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agus y Manu - Mi perfil</title>
-    <meta name="description" content="Agus y Manu - Mi perfil" />
+    <title>Agus y Manu - Registro</title>
+    <meta name="description" content="Agus y Manu - Registro" />
     <link rel="icon" href="../tp 1 prog III/assets/img/servicio-web.svg" />
 
     <link rel="stylesheet" href="../tp 1 prog III/css/styles.css" />
@@ -36,43 +36,45 @@
     <main id="contenido">
       <div class="container">
         <section class="section">
-          <h2>Mi Perfil</h2>
+          <div class="login-form">
 
-          <!-- INFO USUARIO -->
-          <div class="grid">
+            <h2>Registro</h2>
 
-            <article class="card">
-              <h3>👤 John Doe</h3>
-              <p><strong>Email:</strong> usuario@example.com</p>
-              <p><strong>Miembro desde:</strong> 2026</p>
-            </article>
+            <form id="registro-form">
+              <div>
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" required />
+              </div>
 
-            <article class="card">
-              <h3>📋 Información personal</h3>
-              <p><strong>Nombre completo:</strong> John Doe</p>
-              <p><strong>Fecha de nacimiento:</strong> dd/mm/yyyy</p>
-            </article>
+              <div>
+                <label for="apellido">Apellido</label>
+                <input id="apellido" type="text" required />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" required />
+              </div>
+
+              <div>
+                <label for="password">Contraseña</label>
+                <input id="password" type="password" required minlength="6" />
+              </div>
+
+              <div>
+                <label for="confirm-password">Confirmar contraseña</label>
+                <input id="confirm-password" type="password" required minlength="6" />
+              </div>
+
+              <button class="btn primary" type="submit">Registrarse</button>
+
+              <p>
+                ¿Ya tienes cuenta?
+                <a href="./login.html">Inicia sesión</a>
+              </p>
+            </form>
 
           </div>
-
-          <!-- SERVICIOS -->
-          <h3 style="margin-top: 24px; margin-bottom: 12px;">Servicios solicitados</h3>
-          <div class="grid">
-
-            <article class="card">
-              <h4>Desarrollo Web</h4>
-              <p>Solicitado el 10/03/2026</p>
-            </article>
-
-            <article class="card">
-              <h4>Diseño UI/UX</h4>
-              <p>Solicitado el 15/03/2026</p>
-            </article>
-
-          </div>
-
-          <button id="logout-btn" class="btn btn-logout">Cerrar Sesión</button>
-
         </section>
       </div>
     </main>
@@ -84,6 +86,6 @@
       </div>
     </footer>
 
-    <script src="../js/perfil.js"></script>
+    <script src="../js/login.js"></script>
   </body>
 </html>

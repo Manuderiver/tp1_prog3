@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Agus y Manu - Acceso</title>
     <meta name="description" content="Agus y Manu - Acceso" />
+    <link rel="icon" href="../tp 1 prog III/assets/img/servicio-web.svg" />
 
     <link rel="stylesheet" href="../tp 1 prog III/css/styles.css" />
   </head>
@@ -39,24 +40,25 @@
 
             <h2>Acceso</h2>
 
-            <div>
-              <label for="email">Email</label>
-              <input id="email" type="email" required />
-            </div>
+            <form id="login-form">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" required />
+              </div>
 
-            <div>
-              <label for="password">Contraseña</label>
-              <input id="password" type="password" required />
-            </div>
+              <div>
+                <label for="password">Contraseña</label>
+                <input id="password" type="password" required />
+              </div>
 
-            <button class="btn primary" type="submit">Ingresar</button>
+              <button class="btn primary" type="submit">Ingresar</button>
 
-            <p>
-              ¿No eres miembro?
-              <a href="./registro.html">Regístrate</a>
-            </p>
+              <p>
+                ¿No eres miembro?
+                <a href="./registro.html">Regístrate</a>
+              </p>
 
-          </div>
+            </form>
         </section>
       </div>
     </main>
@@ -67,5 +69,7 @@
         <small><a href="../tp 1 prog III/contacto.html">Escribinos</a></small>
       </div>
     </footer>
+
+    <script src="../js/login.js"></script>
   </body>
 </html>
