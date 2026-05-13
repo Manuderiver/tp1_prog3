@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const serviciosRoutes = require("./routes/serviciosRoutes");
+const perfilRoutes = require("./routes/perfilRoutes");
 const equipoRoutes = require("./routes/equipoRoutes");
 
 const app = express();
@@ -24,6 +25,7 @@ app.get("/", (req, res) => {
 app.use("/servicios", serviciosRoutes);
 
 app.use("/equipo", equipoRoutes);
+app.use("/perfil", perfilRoutes);
 
 // Levantar servidor
 app.listen(PORT, () => {
