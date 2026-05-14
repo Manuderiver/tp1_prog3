@@ -1,29 +1,119 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    const pedidoForm = document.querySelector('#contenido form');
+    // =========================
+    // FORMULARIO PEDIDO
+    // =========================
 
-    if (pedidoForm) {
+    const pedidoForm =
+        document.querySelector(
+            '#contenido form'
+        );
 
-        pedidoForm.addEventListener('submit', function (e) {
+    if (
+        pedidoForm &&
+        pedidoForm.querySelector(
+            'input[name="nombre"]'
+        )
+    ) {
 
-            e.preventDefault();
+        pedidoForm.addEventListener(
+            'submit',
+            function (e) {
 
-            const nombre = document.getElementById('nombre').value;
-            const apellido = document.getElementById('apellido').value;
-            const telefono = document.getElementById('telefono').value;
-            const email = document.getElementById('email').value;
-            const servicio = document.getElementById('servicio').value;
-            const fecha = document.getElementById('fecha').value;
-            const canal = document.getElementById('canal').value;
+                e.preventDefault();
 
-            if (nombre && apellido && telefono && email && servicio && fecha && canal) {
-                alert('Pedido enviado exitosamente.');
+                const formData =
+                    new FormData(pedidoForm);
+
+                const data =
+                    Object.fromEntries(formData);
+
+                const requiredFields = [
+                    'nombre',
+                    'apellido',
+                    'email',
+                    'servicio'
+                ];
+
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+
+                    const input =
+                        pedidoForm.querySelector(
+                            `[name="${field}"]`
+                        );
+
+                    if (
+                        !data[field] ||
+                        data[field].trim() === ''
+                    ) {
+
+                        input.style.borderColor =
+                            'red';
+
+                        isValid = false;
+
+                    } else {
+
+                        input.style.borderColor =
+                            '#ccc';
+
+                    }
+
+                });
+
+                if (!isValid) {
+
+                    alert(
+                        'Completa los campos requeridos'
+                    );
+
+                    return;
+
+                }
+
+                alert(
+                    'Pedido enviado exitosamente'
+                );
+
                 pedidoForm.reset();
-            } else {
-                alert('Por favor, completa todos los campos.');
-            }
 
-        });
+            }
+        );
+
+    }
+
+    // =========================
+    // FORMULARIO CONTACTO
+    // =========================
+
+    const contactoForm =
+        document.querySelector(
+            '#contenido form'
+        );
+
+    if (
+        contactoForm &&
+        contactoForm.querySelector(
+            'textarea'
+        )
+    ) {
+
+        contactoForm.addEventListener(
+            'submit',
+            function (e) {
+
+                e.preventDefault();
+
+                alert(
+                    'Mensaje enviado correctamente'
+                );
+
+                contactoForm.reset();
+
+            }
+        );
 
     }
 
