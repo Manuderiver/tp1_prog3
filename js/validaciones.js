@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Enviar al backend
             try {
-                const response = await fetch('http://localhost:3000/pedidos', {
+                const response = await fetch('https://tp1-prog3-791r.onrender.com/pedidos', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Enviar al backend
             try {
-                const response = await fetch('http://localhost:3000/contacto', {
+                const response = await fetch('https://tp1-prog3-791r.onrender.com/contacto', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

@@ -1,19 +1,31 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    // Verificar si hay sesión
+    if (!user) {
+
+        window.location.href = './login.html';
+
+        return;
+    }
+
     cargarPerfil();
 
     async function cargarPerfil() {
 
         try {
 
-            const response = await fetch('http://localhost:3000/perfil/1');
+            const response = await fetch(
+                `https://tp1-prog3-791r.onrender.com/perfil/${user.id}`
+            );
 
             const data = await response.json();
 
             mostrarDatosUsuario(data);
 
             mostrarServicios(
-                data.ultimosPedidos.map(pedido => ({
+                data.pedidos.map(pedido => ({
                     nombre: pedido,
                     fecha: new Date()
                 }))
@@ -28,25 +40,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function mostrarDatosUsuario(user) {
 
-        // Actualizar nombre principal
+        // Nombre principal
         const nombreElement = document.querySelector('.perfil-nombre');
 
         if (nombreElement) {
 
-            nombreElement.textContent = `👤 ${user.nombre}`;
+            nombreElement.textContent = `👤 ${user.nombre} ${user.apellido}`;
 
         }
 
-        // Actualizar email
+        // Email
         const emailElement = document.querySelector('.perfil-email');
 
         if (emailElement) {
 
-            emailElement.innerHTML = `<strong>Email:</strong> ${user.email}`;
+            emailElement.innerHTML =
+                `<strong>Email:</strong> ${user.email}`;
 
         }
 
-        // Actualizar año de registro
+        // Registro
         const registroElement = document.querySelector('.perfil-registro');
 
         if (registroElement) {
@@ -58,22 +71,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        // Actualizar nombre completo
+        // Nombre completo
         const completoElement = document.querySelector('.perfil-completo');
 
         if (completoElement) {
 
             completoElement.innerHTML = `
                 <strong>Nombre completo:</strong>
-                ${user.nombre}
+                ${user.nombre} ${user.apellido}
             `;
 
         }
 
-        // Actualizar foto
+        // Foto
         const fotoElement = document.querySelector('.perfil-foto');
 
-        if (fotoElement) {
+        if (fotoElement && user.foto) {
 
             fotoElement.src = user.foto;
 
@@ -84,7 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function mostrarServicios(servicios) {
 
-        const serviciosContainer = document.querySelector('.servicios-grid');
+        const serviciosContainer =
+            document.querySelector('.servicios-grid');
 
         if (!serviciosContainer) return;
 
@@ -100,7 +114,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h4>${servicio.nombre}</h4>
                 <p>
                     Solicitado el
-                    ${new Date(servicio.fecha).toLocaleDateString('es-ES')}
+                    ${new Date(servicio.fecha)
+                        .toLocaleDateString('es-ES')}
                 </p>
             `;
 
@@ -109,16 +124,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Botón cerrar sesión
+    // Cerrar sesión
     const logoutBtn = document.getElementById('logout-btn');
 
     if (logoutBtn) {
 
         logoutBtn.addEventListener('click', function () {
 
+            localStorage.removeItem('user');
+
             alert('Sesión cerrada');
 
-            window.location.href = '../index.html';
+            window.location.href = './login.html';
 
         });
     }

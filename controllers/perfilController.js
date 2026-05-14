@@ -1,30 +1,39 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const obtenerPerfilPorId = async (req, res) => {
+const obtenerPerfil = async (req, res) => {
 
     try {
 
         const { id } = req.params;
 
-        const rutaArchivo = path.resolve("data/perfiles.json");
+        const rutaUsuarios = path.join(__dirname, "../data/usuarios.json");
 
-        const data = await fs.readFile(rutaArchivo, "utf-8");
+        const dataUsuarios = await fs.readFile(rutaUsuarios, "utf-8");
 
-        const perfiles = JSON.parse(data);
+        const usuarios = JSON.parse(dataUsuarios);
 
-        const perfilEncontrado = perfiles.find(
-            perfil => perfil.id == id
+        const usuarioEncontrado = usuarios.find(
+            usuario => usuario.id == id
         );
 
-        if (!perfilEncontrado) {
+        if (!usuarioEncontrado) {
 
             return res.status(404).json({
-                mensaje: "Perfil no encontrado"
+                mensaje: "Usuario no encontrado"
             });
         }
 
-        res.status(200).json(perfilEncontrado);
+        const perfil = {
+            id: usuarioEncontrado.id,
+            nombre: usuarioEncontrado.nombre,
+            apellido: usuarioEncontrado.apellido,
+            email: usuarioEncontrado.email,
+            fechaRegistro: usuarioEncontrado.fechaRegistro,
+            pedidos: usuarioEncontrado.pedidos
+        };
+
+        res.status(200).json(perfil);
 
     } catch (error) {
 
@@ -37,5 +46,5 @@ const obtenerPerfilPorId = async (req, res) => {
 };
 
 module.exports = {
-    obtenerPerfilPorId
+    obtenerPerfil
 };

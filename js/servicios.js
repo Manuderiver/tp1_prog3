@@ -4,7 +4,7 @@ const obtenerServicios = async () => {
 
     try {
 
-        const respuesta = await fetch("http://localhost:3000/servicios");
+        const respuesta = await fetch("https://tp1-prog3-791r.onrender.com/servicios");
 
         const servicios = await respuesta.json();
 

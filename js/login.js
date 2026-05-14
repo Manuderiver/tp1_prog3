@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             try {
 
                 const response = await fetch(
-                    'http://localhost:3000/login',
+                    'https://tp1-prog3-791r.onrender.com/login',
                     {
                         method: 'POST',
 
