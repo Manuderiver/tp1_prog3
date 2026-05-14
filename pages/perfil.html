@@ -3,82 +3,111 @@
 
 <head>
 
-    <meta charset="UTF-8" />
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-    <title>Agus y Manu - Mi perfil</title>
+<title>Perfil</title>
 
-    <meta name="description" content="Perfil de usuario" />
-
-    <link rel="stylesheet" href="../css/styles.css" />
+<link rel="stylesheet"
+        href="../css/styles.css">
 
 </head>
 
 <body>
 
-    <main id="contenido">
+<header class="site-header">
 
-        <div class="container">
+<div class="container header-inner">
 
-            <section class="section">
+    <a class="brand"
+    href="../index.html">
 
-                <h2>Mi Perfil</h2>
+    Agus y Manu
 
-                <!-- INFO USUARIO -->
-                <div class="grid">
+    </a>
 
-                    <article class="card">
+    <nav class="site-nav">
 
-                        <img
-                            class="perfil-foto"
-                            src=""
-                            alt="Foto perfil"
-                            width="120"
-                        >
+    <ul>
 
-                        <h3 class="perfil-nombre">👤 Usuario</h3>
+        <li><a href="../index.html">Home</a></li>
 
-                        <p class="perfil-email">
-                            <strong>Email:</strong>
-                        </p>
+        <li><a href="../servicios.html">Servicios</a></li>
 
-                        <p class="perfil-registro">
-                            <strong>Miembro desde:</strong>
-                        </p>
+        <li><a href="../equipo.html">Equipo</a></li>
 
-                    </article>
+        <li><a href="../pedido.html">Pedido</a></li>
 
-                    <article class="card">
+        <li><a href="../contacto.html">Contacto</a></li>
 
-                        <h3>📋 Información personal</h3>
+        <li><a href="../faq.html">FAQ</a></li>
 
-                        <p class="perfil-completo">
-                            <strong>Nombre completo:</strong>
-                        </p>
+    </ul>
 
-                    </article>
+    </nav>
 
-                </div>
+</div>
 
-                <!-- SERVICIOS -->
-                <h3 style="margin-top: 24px; margin-bottom: 12px;">
-                    Servicios solicitados
-                </h3>
+</header>
 
-                <div class="grid servicios-grid"></div>
+<main class="container">
 
-                <button id="logout-btn" class="btn">
-                    Cerrar Sesión
-                </button>
+<section class="section">
 
-            </section>
+    <h2>Mi Perfil</h2>
 
-        </div>
+    <div class="grid">
 
-    </main>
+    <article class="card">
 
-    <script src="../js/perfil.js"></script>
+        <h3 class="perfil-nombre">
+        👤 Usuario
+        </h3>
+
+        <p class="perfil-email"></p>
+
+        <p class="perfil-registro"></p>
+
+    </article>
+
+    <article class="card">
+
+        <p class="perfil-completo"></p>
+
+    </article>
+
+    </div>
+
+    <h3>
+    Servicios solicitados
+    </h3>
+
+    <div class="grid servicios-grid"></div>
+
+    <button id="logout-btn"
+            class="btn">
+
+            Cerrar sesión
+
+    </button>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+<div class="container footer-inner">
+
+    <small>© 2026 Agus y Manu</small>
+
+</div>
+
+</footer>
+
+<script src="../js/perfil.js"></script>
 
 </body>
 
