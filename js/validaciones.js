@@ -1,67 +1,27 @@
-// Validaciones formularios
-
 document.addEventListener('DOMContentLoaded', function () {
 
-    // FORM PEDIDO
     const pedidoForm = document.querySelector('#contenido form');
 
-    if (pedidoForm &&
-        pedidoForm.querySelector('input[name=\"nombre\"]')) {
+    if (pedidoForm) {
 
         pedidoForm.addEventListener('submit', function (e) {
 
             e.preventDefault();
 
-            const formData = new FormData(pedidoForm);
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const telefono = document.getElementById('telefono').value;
+            const email = document.getElementById('email').value;
+            const servicio = document.getElementById('servicio').value;
+            const fecha = document.getElementById('fecha').value;
+            const canal = document.getElementById('canal').value;
 
-            const data = Object.fromEntries(formData);
-
-            const requiredFields = [
-                'nombre',
-                'apellido',
-                'email',
-                'servicio'
-            ];
-
-            let isValid = true;
-
-            requiredFields.forEach(field => {
-
-                const input = pedidoForm.querySelector(
-                    `[name=\"${field}\"]`
-                );
-
-                if (!data[field] ||
-                    data[field].trim() === '') {
-
-                    input.style.borderColor = 'red';
-
-                    isValid = false;
-
-                } else {
-
-                    input.style.borderColor = '#ccc';
-
-                }
-
-            });
-
-            if (!isValid) {
-
-                alert(
-                    'Por favor completa todos los campos requeridos'
-                );
-
-                return;
-
+            if (nombre && apellido && telefono && email && servicio && fecha && canal) {
+                alert('Pedido enviado exitosamente.');
+                pedidoForm.reset();
+            } else {
+                alert('Por favor, completa todos los campos.');
             }
-
-            // SIMULACIÓN EXITOSA
-            alert(
-                'Pedido enviado exitosamente. Te contactaremos pronto.'
-            );
-
-            pedidoForm.reset();
 
         });
 
