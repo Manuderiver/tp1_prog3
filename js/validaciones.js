@@ -4,74 +4,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // FORMULARIO PEDIDO
     // =========================
 
-    const pedidoForm =
-        document.querySelector(
-            '#contenido form'
-        );
+    const pedidoForm = document.querySelector(
+        'form[aria-label="Formulario de pedido"]'
+    );
 
-    if (
-        pedidoForm &&
-        pedidoForm.querySelector(
-            'input[name="nombre"]'
-        )
-    ) {
+    if (pedidoForm) {
 
         pedidoForm.addEventListener(
             'submit',
             function (e) {
 
                 e.preventDefault();
-
-                const formData =
-                    new FormData(pedidoForm);
-
-                const data =
-                    Object.fromEntries(formData);
-
-                const requiredFields = [
-                    'nombre',
-                    'apellido',
-                    'email',
-                    'servicio'
-                ];
-
-                let isValid = true;
-
-                requiredFields.forEach(field => {
-
-                    const input =
-                        pedidoForm.querySelector(
-                            `[name="${field}"]`
-                        );
-
-                    if (
-                        !data[field] ||
-                        data[field].trim() === ''
-                    ) {
-
-                        input.style.borderColor =
-                            'red';
-
-                        isValid = false;
-
-                    } else {
-
-                        input.style.borderColor =
-                            '#ccc';
-
-                    }
-
-                });
-
-                if (!isValid) {
-
-                    alert(
-                        'Completa los campos requeridos'
-                    );
-
-                    return;
-
-                }
 
                 alert(
                     'Pedido enviado exitosamente'
@@ -88,17 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // FORMULARIO CONTACTO
     // =========================
 
-    const contactoForm =
-        document.querySelector(
-            '#contenido form'
-        );
+    const contactoForm = document.querySelector(
+        'form[aria-label="Formulario de contacto"]'
+    );
 
-    if (
-        contactoForm &&
-        contactoForm.querySelector(
-            'textarea'
-        )
-    ) {
+    if (contactoForm) {
 
         contactoForm.addEventListener(
             'submit',
